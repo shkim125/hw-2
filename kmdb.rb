@@ -119,6 +119,7 @@ movie["year_released"] = "2005"
 movie["rated"] = "PG-13"
 movie["studio_id"] = Warner["id"]
 movie.save
+BB = Movie.find_by({"title" => "Batman Begins"})
 
 movie = Movie.new
 movie["title"] = "The Dark Knight"
@@ -126,6 +127,7 @@ movie["year_released"] = "2008"
 movie["rated"] = "PG-13"
 movie["studio_id"] = Warner["id"]
 movie.save
+TDK = Movie.find_by({"title" => "The Dark Knight"})
 
 movie = Movie.new
 movie["title"] = "The Dark Knight Rises"
@@ -133,6 +135,8 @@ movie["year_released"] = "2012"
 movie["rated"] = "PG-13"
 movie["studio_id"] = Warner["id"]
 movie.save
+TDKR = Movie.find_by({"title" => "The Dark Knight Rises"})
+
 puts "Movies: #{Movie.all.count}"
 
 actor = Actor.new
@@ -191,3 +195,94 @@ actor.save
 Anne = Actor.find_by({"name" => "Anne Hathaway"})
 
 puts "Actors: #{Actor.all.count}"
+
+role = Role.new
+role["movie_id"] = BB["id"]
+role["actor_id"] = Christian["id"]
+role["character_name"] ="Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = BB["id"]
+role["actor_id"] = Michael["id"]
+role["character_name"] ="Alfred"
+role.save
+
+role = Role.new
+role["movie_id"] = BB["id"]
+role["actor_id"] = Liam["id"]
+role["character_name"] ="Ra's Al Ghul"
+role.save
+
+role = Role.new
+role["movie_id"] = BB["id"]
+role["actor_id"] = Katie["id"]
+role["character_name"] ="Rachel Dawes"
+role.save
+
+role = Role.new
+role["movie_id"] = BB["id"]
+role["actor_id"] = Gary["id"]
+role["character_name"] ="Commissioner Gordon"
+role.save
+
+role = Role.new
+role["movie_id"] = TDK["id"]
+role["actor_id"] = Christian["id"]
+role["character_name"] ="Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = TDK["id"]
+role["actor_id"] = Heath["id"]
+role["character_name"] ="Joker"
+role.save
+
+role = Role.new
+role["movie_id"] = TDK["id"]
+role["actor_id"] = Aaron["id"]
+role["character_name"] ="Harvey Dent"
+role.save
+
+role = Role.new
+role["movie_id"] = TDK["id"]
+role["actor_id"] = Michael["id"]
+role["character_name"] ="Alfred"
+role.save
+
+role = Role.new
+role["movie_id"] = TDK["id"]
+role["actor_id"] = Maggie["id"]
+role["character_name"] ="Rachel Dawes"
+role.save
+
+role = Role.new
+role["movie_id"] = TDKR["id"]
+role["actor_id"] = Christian["id"]
+role["character_name"] ="Bruce Wayne"
+role.save
+
+role = Role.new
+role["movie_id"] = TDKR["id"]
+role["actor_id"] = Gary["id"]
+role["character_name"] ="Commissioner Gordon"
+role.save
+
+role = Role.new
+role["movie_id"] = TDKR["id"]
+role["actor_id"] = Tom["id"]
+role["character_name"] ="Bane"
+role.save
+
+role = Role.new
+role["movie_id"] = TDKR["id"]
+role["actor_id"] = Joseph["id"]
+role["character_name"] ="John Blake"
+role.save
+
+role = Role.new
+role["movie_id"] = TDKR["id"]
+role["actor_id"] = Anne["id"]
+role["character_name"] ="Selina Kyle"
+role.save
+puts "Roles: #{Role.all.count}"
