@@ -86,7 +86,7 @@
 
 # Prints a header for the movies output
 puts "Movies"
-puts "======"
+puts "======="
 puts ""
 
 # Query the movies data and loop through the results to display the movies output.
@@ -101,4 +101,37 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
 
-Model.destroy_all
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
+
+studio = Studio.new
+studio["name"] = "Warner Bros."
+studio.save
+puts "Studios: #{Studio.all.count}"
+
+Warner = Studio.find_by({"name" => "Warner Bros."})
+
+movie = Movie.new
+movie["title"] = "Batman Begins"
+movie["year_released"] = "2005"
+movie["rated"] = "PG-13"
+movie["studio_id"] = Warner["id"]
+movie.save
+
+movie = Movie.new
+movie["title"] = "The Dark Knight"
+movie["year_released"] = "2008"
+movie["rated"] = "PG-13"
+movie["studio_id"] = Warner["id"]
+movie.save
+
+movie = Movie.new
+movie["title"] = "The Dark Knight Rises"
+movie["year_released"] = "2012"
+movie["rated"] = "PG-13"
+movie["studio_id"] = Warner["id"]
+movie.save
+puts "Movies: #{Movie.all.count}"
+
