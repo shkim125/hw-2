@@ -135,3 +135,59 @@ movie["studio_id"] = Warner["id"]
 movie.save
 puts "Movies: #{Movie.all.count}"
 
+actor = Actor.new
+actor["name"] = "Christian Bale"
+actor.save
+Christian = Actor.find_by({"name" => "Christian Bale"})
+
+actor = Actor.new
+actor["name"] = "Michael Caine"
+actor.save
+Michael = Actor.find_by({"name" => "Michael Caine"})
+
+actor = Actor.new
+actor["name"] = "Liam Neeson"
+actor.save
+Liam = Actor.find_by({"name" => "Liam Neeson"})
+
+actor = Actor.new
+actor["name"] = "Katie Holmes"
+actor.save
+Katie = Actor.find_by({"name" => "Katie Holmes"})
+
+actor = Actor.new
+actor["name"] = "Gary Oldman"
+actor.save
+Gary = Actor.find_by({"name" => "Gary Oldman"})
+
+actor = Actor.new
+actor["name"] = "Heath Ledger"
+actor.save
+Heath = Actor.find_by({"name" => "Heath Ledger"})
+
+actor = Actor.new
+actor["name"] = "Aaron Eckhart"
+actor.save
+Aaron = Actor.find_by({"name" => "Aaron Eckhart"})
+
+actor = Actor.new
+actor["name"] = "Maggie Gyllenhaal"
+actor.save
+Maggie = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+
+actor = Actor.new
+actor["name"] = "Tom Hardy"
+actor.save
+Tom = Actor.find_by({"name" => "Tom Hardy"})
+
+actor = Actor.new
+actor["name"] = "Joseph Gordon-Levitt"
+actor.save
+Joseph = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
+
+actor = Actor.new
+actor["name"] = "Anne Hathaway"
+actor.save
+Anne = Actor.find_by({"name" => "Anne Hathaway"})
+
+puts "Actors: #{Actor.all.count}"
