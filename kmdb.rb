@@ -85,18 +85,13 @@
 # TODO!
 
 # Prints a header for the movies output
-puts "Movies"
-puts "======="
-puts ""
+
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
 # Prints a header for the cast output
-puts ""
-puts "Top Cast"
-puts "========"
-puts ""
+
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
@@ -109,7 +104,7 @@ Role.destroy_all
 studio = Studio.new
 studio["name"] = "Warner Bros."
 studio.save
-puts "Studios: #{Studio.all.count}"
+# puts "Studios: #{Studio.all.count}" - for me
 
 Warner = Studio.find_by({"name" => "Warner Bros."})
 
@@ -137,7 +132,7 @@ movie["studio_id"] = Warner["id"]
 movie.save
 TDKR = Movie.find_by({"title" => "The Dark Knight Rises"})
 
-puts "Movies: #{Movie.all.count}"
+# puts "Movies: #{Movie.all.count}"
 
 actor = Actor.new
 actor["name"] = "Christian Bale"
@@ -194,7 +189,7 @@ actor["name"] = "Anne Hathaway"
 actor.save
 Anne = Actor.find_by({"name" => "Anne Hathaway"})
 
-puts "Actors: #{Actor.all.count}"
+# puts "Actors: #{Actor.all.count}" - for me
 
 role = Role.new
 role["movie_id"] = BB["id"]
@@ -285,4 +280,36 @@ role["movie_id"] = TDKR["id"]
 role["actor_id"] = Anne["id"]
 role["character_name"] ="Selina Kyle"
 role.save
-puts "Roles: #{Role.all.count}"
+# puts "Roles: #{Role.all.count}"
+
+puts "Movies"
+puts "======="
+puts ""
+
+
+movie_all = Movie.all
+  for movie in movie_all
+      title = movie["title"]
+      year_released = movie["year_released"]
+      rated = movie["rated"]
+      studio_id = movie["studio_id"]
+      warner = Studio.find_by({"id" => studio_id})
+      puts "#{title} #{year_released} #{rated} #{warner["name"]}"
+  end 
+
+puts "Top Cast"
+puts "========"
+puts ""
+
+role_all = Role.all
+ for role in role_all
+     movie_id = role["movie_id"]
+     movie = Movie.find_by({"id" => movie_id})
+     actor_id = role["actor_id"]
+     actor = Actor.find_by({"id" => actor_id})
+     character_name = role["character_name"]
+        puts "#{movie["title"]} #{actor["name"]} #{character_name}"
+    end
+
+
+
